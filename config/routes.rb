@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       sessions: 'users/sessions'
     }
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+
   resources :users
 
 end
