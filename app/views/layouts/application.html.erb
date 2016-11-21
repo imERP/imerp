@@ -9,6 +9,14 @@
   </head>
 
   <body>
+
+  <%= notice_message %>
+
+  <% if user_signed_in? %>
+    <%= render  "layouts/shares/navbar" %>
     <%= yield %>
+  <% else %>
+    <%= yield %>
+  <% end %>
   </body>
 </html>
