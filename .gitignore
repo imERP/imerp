@@ -9,6 +9,7 @@ public/qrcode/
 public/assets/
 public/fonts/
 config/database.yml
+config/settings.yml
 .bundle
 db/*.sqlite3
 db/*.sqlite3-journal

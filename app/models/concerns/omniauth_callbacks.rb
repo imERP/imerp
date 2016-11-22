@@ -2,7 +2,7 @@ module OmniauthCallbacks
   extend ActiveSupport::Concern
 
   module ClassMethods
-    %w(weibo qq).each do |provider|
+    %w(weibo qq github).each do |provider|
       define_method "find_or_create_for_#{provider}" do |response|
         uid = response['uid'].to_s
         data = response['info']

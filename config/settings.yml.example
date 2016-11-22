@@ -1,0 +1,16 @@
+# about me
+my_web: "http://cheenwe.cn"
+my_blog: "http://cheenwe.github.io"
+me: "cheenwe"
+
+# web_url
+web_url: "im-erp.com"
+web_name: "imERP"
+
+omniauth_modules: 'weibo,github'
+
+github_token: "xx"
+github_secret: "xx"
+
+weibo_token: "xxx"
+weibo_secret: "xxxxx"
