@@ -16,6 +16,7 @@ gem 'devise'
 
 gem 'omniauth'
 gem 'omniauth-weibo-oauth2'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'byebug', platform: :mri

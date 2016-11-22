@@ -23,4 +23,8 @@
   </div>
 <% end %>
 
+<li><%= link_to raw("<i class='fa fa-weibo'></i> Weibo"), omniauth_authorize_path(:user, :weibo), class: "btn btn-default btn-lg btn-block" %> </li>
+<li><%= link_to raw("<i class='fa fa-github'></i> Github"), omniauth_authorize_path(:user, :github), class: "btn btn-default btn-lg btn-block" %> </li>
+
+
 <%= render "devise/shared/links" %>

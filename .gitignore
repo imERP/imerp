@@ -2,6 +2,7 @@ current/
 releases/
 shared/
 repo/
+docs/
 public/uploads/*
 public/uploads
 public/qrcode/

@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  success_bind_account: "success bind  #{provider} account"
+
+  success_bind_account: "您已经成功绑定了 #{provider} 帐号。"
+

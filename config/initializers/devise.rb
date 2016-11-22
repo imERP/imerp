@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'a5ef734ebd44b3fd950d3b0eef3dd6a0930def712a3c5c67e2bd1633f45dfeaccc2e81efca3cb8fec85499ad4b8c7821e74e015b72e748e0c83ca5c850fb480a'
+  config.secret_key = 'a5ef734ebd44b3fd950d3b0eef3dd6a0930def712a3c5c67e2bd1633f45dfeaccc2e81efca3cb8fec85499ad4b8c7821e74e015b72e748e0c83ca5c850fb480a'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -15,7 +15,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -34,7 +34,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:email, :username, :name, :phone]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -51,13 +51,13 @@ Devise.setup do |config|
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = [:email, :username, :name, :phone]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
-  # config.params_authenticatable = true
+  config.params_authenticatable = true
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
@@ -108,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '80e2e0ab169ee2faed1b410f217eadae9fb70122f283862cedce67f8c88482e1f1970dcd5de62a8ad8b3260cc9e7577aab62d9727d874ea628ba944a34cabe25'
+  config.pepper = '80e2e0ab169ee2faed1b410f217eadae9fb70122f283862cedce67f8c88482e1f1970dcd5de62a8ad8b3260cc9e7577aab62d9727d874ea628ba944a34cabe25'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -140,7 +140,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
@@ -248,6 +248,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :github, 'APP_ID', 'APP_SECRET'#, scope: 'user,public_repo'
+  config.omniauth :weibo, 'APP_ID', 'APP_SECRET'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
