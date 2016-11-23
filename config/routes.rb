@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   root 'users#index'
 
   devise_for :users, path: 'account', controllers: {
-      sessions: 'users/sessions',
+      login: 'users/sessions',
+      logout: 'users/sessions#sign_out',
       omniauth_callbacks: 'users/omniauth_callbacks'
     }
+
+
 
   # get '/auth/:provider/callback', to: 'sessions#create'
 

@@ -14,3 +14,7 @@ github_secret: "xx"
 
 weibo_token: "xxx"
 weibo_secret: "xxxxx"
+
+
+
+default_password: "12344321"

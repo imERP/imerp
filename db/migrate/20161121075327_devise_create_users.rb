@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :phone,              null: false, default: ""
+      t.string :phone
       t.string :username,              null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -11,8 +11,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :code,              null: false, default: ""
       t.string :avatar,              null: false, default: ""
       t.string :bio
-      t.boolean :sex    
-      t.integer :state      
+      t.boolean :sex
+      t.integer :state
       t.text :remark
 
       ## Recoverable

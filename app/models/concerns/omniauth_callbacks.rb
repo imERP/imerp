@@ -29,23 +29,26 @@ module OmniauthCallbacks
           if data['email'].present? && !User.where(email: data['email']).exists?
             data['email']
           else
-            "#{provider}+#{uid}@example.com"
+            "#{provider}+#{uid}@#{Settings.web_url}"
           end
+        puts  data
+        if provider == 'github'
+          user.name = data['name']
+          user.username = data['nickname']
+          user.username.gsub!(/[^\w]/, '_')
+        elsif provider == 'weibo'
+          user.name = data['info']['name']
+          user.username = data['info']['nickname']
+          user.username.gsub!(/[^\w]/, '_')
 
-        user.name = data['name']
-        user.username = data['nickname']
-        user.username.gsub!(/[^\w]/, '_')
-
-        # if provider == 'weibo'
-        #   user.weibo = data['nickname']
-        # end
-
-        if user.username.blank?
-          user.username = "u#{Time.now.to_i}"
         end
 
-        if User.where(username: user.login).exists?
-          user.username = "#{user.weibo}-weibo" # TODO: possibly duplicated user login here. What should we do?
+        if user.name.blank?
+          user.name = "u#{Time.now.to_i}"
+        end
+
+        if User.where(name: user.name).exists?
+          user.username = "#{user.name}-#{provider}"
         end
 
         user.password = Devise.friendly_token[0, 20]
@@ -57,27 +60,3 @@ module OmniauthCallbacks
 end
 
 
-# {
-#   :provider => 'weibo',
-#   :uid => '1234567890',
-#   :info => {
-#     :nickname => 'beenhero',
-#     :name => 'beenhero',
-#     :location => '浙江 杭州',
-#     :image => 'http://tp4.sinaimg.cn/1640099215/50/1287016234/1',
-#     :description => '移步twitter@beenhero',
-#     :urls => {  :Blog => 'http://beenhero.com'
-#                 :Weibo => 'http://weibo.com/beenhero'
-#     },
-#   },
-#   :credentials => {
-#     :token => '2.00JjgzmBd7F...', # OAuth 2.0 access_token, which you may wish to store
-#     :expires_at => 1331780640, # when the access token expires (if it expires)
-#     :expires => true # if you request `offline_access` this will be false
-#   },
-#   :extra => {
-#     :raw_info => {
-#       ... # data from /2/users/show.json, check by yourself
-#     }
-#   }
-# }

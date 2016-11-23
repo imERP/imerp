@@ -250,11 +250,12 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   if Settings.omniauth_modules.include? "github"
-    config.omniauth :github, Settings.github_token, Settings.github_secret
+    config.omniauth :github, Settings.github_token, Settings.github_secret,
+  provider_ignores_state: true
   end
 
   if Settings.omniauth_modules.include? "weibo"
-    config.omniauth :weibo, Settings.weibo_token, Settings.weibo_secret
+    config.omniauth :weibo, Settings.weibo_token, Settings.weibo_secret, token_params: {redirect_uri: "http://#{Settings.web_url}/auth/weibo/callback" }
   end
 
   # ==> Warden configuration
