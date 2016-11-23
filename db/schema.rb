@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122011809) do
+ActiveRecord::Schema.define(version: 20161123151332) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 20161122011809) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authorizations_on_provider_and_uid"
+  end
+
+  create_table "ireads", force: :cascade do |t|
+    t.string   "caption"
+    t.string   "caption_render"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "iread_id"
+    t.string   "file"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["iread_id"], name: "index_pictures_on_iread_id"
   end
 
   create_table "users", force: :cascade do |t|

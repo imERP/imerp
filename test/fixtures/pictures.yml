@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  iread_id: 1
+  file: MyString
+  url: MyString
+
+two:
+  iread_id: 1
+  file: MyString
+  url: MyString

@@ -1,0 +1,1 @@
+json.array! @ireads, partial: 'ireads/iread', as: :iread

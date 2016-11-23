@@ -1,0 +1,27 @@
+<%= form_for(iread) do |f| %>
+  <% if iread.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(iread.errors.count, "error") %> prohibited this iread from being saved:</h2>
+
+      <ul>
+      <% iread.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+  </div>
+
+  <div class="field">
+    <%= f.label :caption_render %>
+    <%= f.text_field :caption_render %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,1 @@
+json.partial! "ireads/iread", iread: @iread
