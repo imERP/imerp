@@ -4,7 +4,7 @@ class IreadsController < ApplicationController
   # GET /ireads
   # GET /ireads.json
   def index
-    @ireads = Iread.all
+    @ireads = Iread.last(50)
   end
 
   # GET /ireads/1

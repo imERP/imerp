@@ -21,6 +21,8 @@ gem 'omniauth-github'
 
 gem 'config'
 
+gem 'rest-client'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

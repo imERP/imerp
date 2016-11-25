@@ -6,19 +6,25 @@
   <thead>
     <tr>
       <th>Caption</th>
-      <th>Caption render</th>
-      <th colspan="3"></th>
+      <!-- <th>Caption render</th> -->
+      <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
 
   <tbody>
     <% @ireads.each do |iread| %>
       <tr>
-        <td><%= iread.caption %></td>
-        <td><%= iread.caption_render %></td>
-        <td><%= link_to 'Show', iread %></td>
+        <td><%= raw iread.caption %></td>
+        <td>
+
+          <% iread.pictures.each do |picture| %>
+            <span><%= image_tag(picture.url) %></span>
+          <% end %>
+        </td>
+        <!-- <td><%= iread.caption_render %></td> -->
+        <!-- <td><%= link_to 'Show', iread %></td>
         <td><%= link_to 'Edit', edit_iread_path(iread) %></td>
-        <td><%= link_to 'Destroy', iread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', iread, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
