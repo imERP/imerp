@@ -31,14 +31,19 @@ namespace :weibo do
 
       if result.headers[:content_type] == "application/json"
         JSON.parse(result.body)["data"]["photo_list"].each do |list|
-          puts list["mid"]
-
+          puts list
           ireads = Iread.where(mid:list["mid"])
           if ireads.present?
+            puts "#{list["mid"]} ======== create picture"
             Picture.create(iread_id: ireads.last.id, url: list["url"])
+
           else
+            puts "#{list["mid"]} ======== create picture and iread"
+
             iread = Iread.create(mid: list["mid"],caption: list["caption"],caption_render: list["caption_render"])
+
             Picture.create( iread_id: iread.id, url: list["url"])
+
           end
           sleep(0.0001)
         end
