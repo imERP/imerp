@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  standard: MyString
+  pattern: MyString
+  cost: 9.99
+  price: 9.99
+  use: MyString
+  explanation: MyText
+  can_sale: false
+  sales: 1
+  sales_amount: 9.99
+  user_id: 1
+
+two:
+  code: MyString
+  name: MyString
+  standard: MyString
+  pattern: MyString
+  cost: 9.99
+  price: 9.99
+  use: MyString
+  explanation: MyText
+  can_sale: false
+  sales: 1
+  sales_amount: 9.99
+  user_id: 1

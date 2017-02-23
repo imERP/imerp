@@ -1,0 +1,77 @@
+<%= form_for(api_v1_product) do |f| %>
+  <% if api_v1_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(api_v1_product.errors.count, "error") %> prohibited this api_v1_product from being saved:</h2>
+
+      <ul>
+      <% api_v1_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :standard %>
+    <%= f.text_field :standard %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pattern %>
+    <%= f.text_field :pattern %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :use %>
+    <%= f.text_field :use %>
+  </div>
+
+  <div class="field">
+    <%= f.label :explanation %>
+    <%= f.text_area :explanation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :can_sale %>
+    <%= f.check_box :can_sale %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sales %>
+    <%= f.number_field :sales %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sales_amount %>
+    <%= f.text_field :sales_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
