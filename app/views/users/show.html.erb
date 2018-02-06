@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+
+<% if @user.avatar.attached? %>
+<!-- @user.avatar.present? will always return true, use attached? to check presence -->
+  <p>
+    <strong>Image:</strong>
+    <br>
+    <%= image_tag @user.avatar %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
