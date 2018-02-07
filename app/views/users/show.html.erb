@@ -10,14 +10,29 @@
   <%= @user.phone %>
 </p>
 
-<% if @user.avatar.attached? %>
-<!-- @user.avatar.present? will always return true, use attached? to check presence -->
+<% if @user.image.attached? %>
+<!-- @user.image.present? will always return true, use attached? to check presence -->
   <p>
     <strong>Image:</strong>
     <br>
-    <%= image_tag @user.avatar %>
+    <%= image_tag @user.image %>
   </p>
 <% end %>
+
+
+
+<% if @user.attachments.attached? %>
+<p>
+  <strong>Images:</strong>
+  <br>
+  <% @user.attachments.each do |attachment| %>
+    <%= image_tag(attachment) %>
+  <% end %>
+</p>
+<% end %>
+
+
+<!-- attachments -->
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

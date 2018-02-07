@@ -22,9 +22,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
+
+
+  <div class="field">
+    <%= form.label :attachments %>
+    <%= form.file_field :attachments,  multiple: true %>
+  </div>
+
+
+
 
   <div class="actions">
     <%= form.submit %>

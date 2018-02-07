@@ -10,5 +10,8 @@
 #
 
 class User < ApplicationRecord
-    has_one_attached :avatar
+    has_one_attached :image
+    has_many_attached :attachments
+
+    scope :with_eager_loaded_images, -> { eager_load(attachments_attachments: :blob) }
 end
