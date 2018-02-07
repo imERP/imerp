@@ -15,7 +15,7 @@
   <p>
     <strong>Image:</strong>
     <br>
-    <%= image_tag @user.image %>
+    <%= image_tag @user.image_url %>
   </p>
 <% end %>
 
@@ -26,7 +26,8 @@
   <strong>Images:</strong>
   <br>
   <% @user.attachments.each do |attachment| %>
-    <%= image_tag(attachment) %>
+    <!-- <%= image_tag(attachment) %> -->
+    <%= image_tag attachment.variant(resize: "150x150") %>
   <% end %>
 </p>
 <% end %>
