@@ -7,6 +7,7 @@
 https://evilmartians.com/chronicles/rails-5-2-active-storage-and-beyond
 2. Built-in Redis cache store - https://github.com/rails/rails/pull/31134
 3. Implement H2 Early Hints for Rails - https://github.com/rails/rails/pull/30744
+http://eileencodes.com/posts/http2-early-hints/
 4. Ships with Bootsnap by default - https://github.com/Shopify/bootsnap
 Webpacker 3.0
 

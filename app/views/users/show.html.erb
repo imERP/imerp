@@ -27,7 +27,10 @@
   <br>
   <% @user.attachments.each do |attachment| %>
     <!-- <%= image_tag(attachment) %> -->
-    <%= image_tag attachment.variant(resize: "150x150") %>
+    <!-- <%= image_tag attachment.variant(resize: "150x150") rescue ''%> -->
+    <%#= url_for(attachment) %>
+    <%= image_tag url_for(attachment) %>
+
   <% end %>
 </p>
 <% end %>
