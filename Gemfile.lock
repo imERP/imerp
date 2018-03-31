@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/cheenwe/exception-track.git
+  revision: dbf193359598a8341e369eb904b0bb9646e471f2
+  specs:
+    exception-track (0.2.0)
+      exception_notification (~> 4)
+      rails (>= 4.0, < 5.2)
+      will_paginate (>= 3.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,6 +74,9 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.7.1)
+    exception_notification (4.2.2)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
     execjs (2.7.0)
     ffi (1.9.23)
     globalid (0.4.1)
@@ -199,6 +211,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  exception-track!
   jbuilder (~> 2.5)
   letter_avatar
   listen (>= 3.0.5, < 3.2)

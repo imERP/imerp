@@ -72,3 +72,4 @@ gem "ransack"
 gem "rails-settings-cached" #https://github.com/huacnlee/rails-settings-cached
 
 gem 'letter_avatar' # sudo apt-get install -y imagemagick / brew install imagemagick ghostscript
+gem 'exception-track', github: "cheenwe/exception-track"#
