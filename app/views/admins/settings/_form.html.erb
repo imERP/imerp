@@ -1,0 +1,14 @@
+
+<%= form_for @site_config, as: :setting, url: admins_setting_path(@site_config.var), method: 'patch'  do |f| %>
+
+  <div class="form-group">
+    <%= f.text_field :value, autofocus: true, class: 'form-control', :value => Setting[@site_config.var] %>
+  </div>
+
+  <br/>
+  <div class="form-group">
+      <%= f.submit "提交", class: "btn-primary btn-md m-btn " %>
+    <a href="<%= admins_settings_path %>" class="btn"><%= t("common.cancel") %></a>
+  </div>
+
+<% end %>

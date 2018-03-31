@@ -1,13 +1,111 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
-  </head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="background: #e9eaed;">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style type="text/css">
+    * { margin:0; padding:0px; }
+    #outlook a { padding: 10px; } /* Force Outlook to provide a "view in browser" menu link. */
+    body {
+      width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;
+    }
+    .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+    #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
 
-  <body>
+    a { color: #0069D6; }
+
+    p {
+      margin: 0;
+      padding: 5px;
+      margin-bottom: 15px;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .btn {
+        border-radius: 3px;
+        font-size: 13px;
+        border-color: transparent;
+        -webkit-appearance: none;
+        outline: none !important;
+        -webkit-transition: all 0.1s;
+        -o-transition: all 0.1s;
+        transition: all 0.1s;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 16px;
+        font-size: 14px;
+        line-height: 1.52857;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .btn-success {
+        color: #fff;
+        background-color: #27c24c;
+        border-color: #26be4a;
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #f05050;
+        border-color: #f04b4b;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+    }
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>thead>tr>td,
+    .table>thead>tr>th {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .text-danger { color: #EB5424; }
+    .text-success { color: #27c24c; }
+    .text-primary { color: #5d9cec; }
+
+    .text-muted { color: #999; }
+
+    p.lead { font-weight: bold; }
+  </style>
+</head>
+<body style="background: #e9eaed; font-family: Helvetica, Arial, sans-serif; font-size: 13px;">
+  <div style="height: 20px;"></div>
+  <div style="background: #FFF; margin: 20px; padding: 20px; border-radius: 3px; border: 1px; border-color: #e5e6e9 #dfe0e4 #d0d1d5; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);">
     <%= yield %>
+  </div>
+
+  <div style="color: #9CA4A9; margin: 10px 20px; margin-top: 10px; line-height: 150%;text-align: center;">
+
+    <p class="text-muted">系统发信，请勿回复</p>
+    <div>©<%= link_to Setting.web_name, Setting.web_url, style: 'color: #888888' %> | <%= Time.now.strftime("%Y-%m-%d %H:%M") %> </div>
+  </div>
+  <div style="height: 20px;"></div>
+
   </body>
 </html>

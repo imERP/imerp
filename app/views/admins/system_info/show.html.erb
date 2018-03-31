@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-4">
+			<div class="panel">
+				<div class="panel-heading"> CPU </div>
+				<div class="panel-body">
+				<%= @cpus %>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel">
+				<div class="panel-heading"> Memory </div>
+				<div class="panel-body">
+				<%= number_to_human_size(@mem_used) %> / <%= number_to_human_size(@mem_total) %>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="panel">
+				<div class="panel-heading"> Disks </div>
+				<div class="panel-body">
+					<% @disks.each do |disk| %>
+						<h1> <%= number_to_human_size(disk[:bytes_used]) %> / <%= number_to_human_size(disk[:bytes_total]) %></h1>
+						<p> <%= disk[:disk_name] %> </p>
+						<p> <%= disk[:mount_path] rescue "" %> </p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

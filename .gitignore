@@ -28,3 +28,17 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+config/database.yml
+config/config.yml
+
+.idea/
+current
+releases/
+repo/
+
+*.swp
+test.rb
+yarn.lock
+/yarn-error.log
+package-lock.json

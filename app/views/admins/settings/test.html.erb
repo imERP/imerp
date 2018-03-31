@@ -1,0 +1,58 @@
+
+
+<% if !params[:for]%>
+  <div class="row col-md-12 ">
+    <h1  class="text-center m-title"><strong>测试邮件发送</strong></h1>
+
+    <%= form_for @test_mail, as: :test_mail, url: "test_mail" do |f| %>
+
+      <div class="form-group">
+        <%= f.label :mail_to, class: 'control-label' %>
+        <%= f.text_field :mail_to, autofocus: true, class: 'form-control', :value => "cxhyun@126.com" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email_subject, class: 'control-label' %>
+        <%= f.text_field :email_subject, autofocus: true, class: 'form-control', :value => "Test Message From imERP"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email_body, class: 'control-label' %>
+        <%= f.text_area :email_body, autofocus: true, class: 'form-control', rows: 6, :value => "This is a test message from imERP. " %>
+
+      </div>
+      <br/>
+      <div class="form-group">
+          <%= f.submit "测试邮件发送", class: "btn-primary btn-md m-btn " %>
+      </div>
+    <% end %>
+
+  </div>
+
+
+<% elsif params[:for] == "sms" %>
+  <div class="row col-md-12 ">
+    <h1  class="text-center m-title"><strong>测试短信件发送</strong></h1>
+
+    <%= form_for @test_mail, as: :test_sms, url: "test_sms" do |f| %>
+
+      <div class="form-group">
+        <%= f.label :mail_to, class: 'control-label' %>
+        <%= f.text_field :mail_to, autofocus: true, class: 'form-control', :value => "18516053755" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :code, class: 'control-label' %>
+        <%= f.text_field :code, autofocus: true, class: 'form-control', :value => "123456"%>
+      </div>
+
+      <br/>
+      <div class="form-group">
+          <%= f.submit "测试短信件发送", class: "btn-primary btn-md m-btn " %>
+      </div>
+    <% end %>
+
+  </div>
+
+<% end %>
+

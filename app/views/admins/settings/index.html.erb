@@ -1,0 +1,15 @@
+<table class="table table-bordered table-striped table-condensed">
+  <tr>
+    <th>Key</th>
+    <th>说明</th>
+    <th></th>
+  </tr>
+
+<% Setting.get_all.each do |key, value| %>
+  <tr>
+    <td><a href="<%= edit_admins_setting_path(key) %>"><%= key %></a></td>
+    <td><%= value %></td>
+    <td class="opts"><%= link_to "edit", edit_admins_setting_path(key) %></td>
+  </tr>
+<% end %>
+</table>

@@ -35,6 +35,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: Setting.web_url, protocol: Setting.protocol }
+
+  config.action_mailer.smtp_settings = Setting.mailer_options.deep_symbolize_keys
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

@@ -1,0 +1,35 @@
+<p class="lead">您好: </p>
+
+<p><%= @mail[:data]["apply_username"] %>填写了数据请及时处理:</p>
+
+<p class="text-muted">
+  <%= @mail[:data]["remark"] %>
+</p>
+
+<table class="table" >
+    <thead>
+        <tr>
+            <th>原始数据</th>
+            <th>目的数据</th>
+            <th>上传时间</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%#= @mail[:data]["modelable"][:from] rescue '' %></td>
+            <td><%#= @mail[:data]["modelable"][:to] rescue ''  %></td>
+            <td><%#= @mail[:data]["modelable"][:created_at].strftime("%Y-%m-%d %H:%M") rescue ''  %></td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="<%#= "#{Settings.protocol}://#{Settings.web_url}/backups/#{@mail[:data]["modelable"][:id] rescue '' }?tab=details" %>" >
+  <button type="button" class='btn btn-success'>
+  立刻查看
+  </button>
+</a>
+<p class="text-muted">如无法点击,请复制以下链接到浏览器,</p>
+
+<p>
+ <%#= "#{Settings.protocol}://#{Settings.web_url}/backups/#{@mail[:data]["modelable"][:id] rescue '' }?tab=details" %>
+</p>

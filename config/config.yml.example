@@ -1,0 +1,30 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  # web_url
+  protocol: 'http'
+  web_url: "localhost:3000"
+  web_name: "imERP"
+
+  ## mail config
+  mailer_provider: 'smtp'
+  mailer_sender: "user_name@xx.com"
+  mailer_sender_display_name: "眼控数据管理系统"
+  mailer_reply_to: user_name@xx.com
+  mailer_reply_display_name: ''
+  mailer_options:
+    address: "smtp.xx.com"
+    port: 25
+    domain: "xx.com"
+    authentication: :login #'plain'
+    user_name: "user_name@xx.com"
+    password: "password"
+    enable_starttls_auto: true
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
