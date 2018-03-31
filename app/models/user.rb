@@ -14,30 +14,37 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-    has_one_attached :image, dependent: :destroy
-    has_many_attached :attachments, dependent: :destroy
+  has_one_attached :image, dependent: :destroy
+  has_many_attached :attachments, dependent: :destroy
 
+  after_create :generate_avatar
 
-    # # Synchronously destroy the avatar and actual resource files.
-    # user.avatar.purge
+  # # Synchronously destroy the avatar and actual resource files.
+  # user.avatar.purge
 
-    # # Destroy the associated models and actual resource files async, via Active Job.
-    # user.avatar.purge_later
-    #
+  # # Destroy the associated models and actual resource files async, via Active Job.
+  # user.avatar.purge_later
+  #
 
-    # The redirection has an HTTP expiration of 5 min.
+  # The redirection has an HTTP expiration of 5 min.
 
-    # url_for(user.avatar)
-    # To create a download link, use the rails_blob_{path|url} helper. Using this helper allows you to set the disposition.
-    # rails_blob_path(user.avatar, disposition: "attachment")
+  # url_for(user.avatar)
+  # To create a download link, use the rails_blob_{path|url} helper. Using this helper allows you to set the disposition.
+  # rails_blob_path(user.avatar, disposition: "attachment")
 
-    # Previewing Files
-    # <%= image_tag file.preview(resize: "100x100>") %>
-    scope :with_eager_loaded_images, -> { eager_load(attachments_attachments: :blob) }
+  # Previewing Files
+  # <%= image_tag file.preview(resize: "100x100>") %>
+  scope :with_eager_loaded_images, -> { eager_load(attachments_attachments: :blob) }
 
-    def image_url
+  def image_url
     Rails.cache.fetch(self.cache_key("image_url")) do
         self.image.service_url
     end
   end
+
+  def generate_avatar
+    path = LetterAvatar.generate self.email, 30
+    update(avatar: path.sub('public/', '/'))
+  end
+
 end
