@@ -1,5 +1,4 @@
 class Admins::SystemInfoController < Admins::ApplicationController
-    layout "admin"
 
   EXCLUDED_MOUNT_OPTIONS = [
     'nobrowse',
