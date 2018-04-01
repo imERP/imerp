@@ -32,5 +32,15 @@ Webpacker 3.0
 嵌套:
 
 >Rails.application.credentials.dig(:section_name, :nested_key_name)
+
 or
+
 >Rails.application.credentials.key_name[:nested_key_name]
+
+
+- usage
+
+git clone https://github.com/imERP/imerp.git
+
+bin/setup
+

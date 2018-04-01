@@ -27,19 +27,19 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: 5
-  host: 192.168.100.2
+  pool: 2
+  host: localhost
   username: root
-  password: root
+  password:
 
 development:
   <<: *default
-  database: imm_dev
+  database: imerp_dev
 
 test:
   <<: *default
-  database: imm_dev
+  database: imerp_test
 
 production:
   <<: *default
-  database: imm_dev
+  database: imerp

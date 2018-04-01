@@ -8,7 +8,7 @@ defaults: &defaults
   ## mail config
   mailer_provider: 'smtp'
   mailer_sender: "user_name@xx.com"
-  mailer_sender_display_name: "眼控数据管理系统"
+  mailer_sender_display_name: "imERP"
   mailer_reply_to: user_name@xx.com
   mailer_reply_display_name: ''
   mailer_options:
@@ -20,6 +20,7 @@ defaults: &defaults
     password: "password"
     enable_starttls_auto: true
 
+  devise_secret_key: '0b8d132020c6cf4c3706911d13ba205b5c88f7a83198341eee3de45272825bf13ea09aba4df1c8f342f60829ac20b8b7a66e63a5e1da006c379483f96744933b'
 development:
   <<: *defaults
 
